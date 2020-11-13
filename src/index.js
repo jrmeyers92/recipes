@@ -17,17 +17,12 @@ const App = () => {
 		setRecipes(response.data.results);
 	};
 
-	let recipeArray = [...recipes];
-	let recipeIds = [];
-
-	recipeArray.forEach((element) => {
-		recipeIds.push(element.id);
-	});
+	console.log(recipes);
 
 	return (
 		<div>
 			<Search onSearchSubmit={onSearchSubmit} />
-			<RecipeCard ids={recipeIds} />
+			<RecipeCard recipes={recipes} />
 		</div>
 	);
 };
