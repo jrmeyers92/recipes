@@ -1,13 +1,17 @@
 import React from "react";
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom";
 import Search from "./Search/Search";
 
 const App = () => {
-    return (
-        <div>
-            <Search />
-        </div>
-    )
-}
+	const onSearchSubmit = (searchTerm) => {
+		console.log(searchTerm);
+	};
 
-ReactDOM.render(<App />, document.querySelector('#root'))
+	return (
+		<div>
+			<Search onSearchSubmit={onSearchSubmit} />
+		</div>
+	);
+};
+
+ReactDOM.render(<App />, document.querySelector("#root"));
