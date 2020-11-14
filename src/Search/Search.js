@@ -17,7 +17,8 @@ const Search = (props) => {
 					type='search'
 					onChange={(e) => setSearchTerm(e.target.value)}
 					value={searchTerm}
-					placeholder='search for a recipe'></input>
+					placeholder='search for a recipe'
+					className='search__input'></input>
 			</form>
 		</div>
 	);
