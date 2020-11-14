@@ -1,13 +1,13 @@
 import React from "react";
 
 const RecipeCard = (props) => {
-	return (
-		<div className='recipe-card'>
-			{/* <h2>{props.recipes[0].title}</h2> */}
-			{/* <img src={props.recipes[0].image}></img> */}
-			hi
-		</div>
-	);
+	const titleArray = [...props.recipes];
+
+	const recipes = titleArray.map((recipe) => {
+		return <h2 key={recipe.title}>{recipe.title}</h2>;
+	});
+
+	return <div>{recipes}</div>;
 };
 
 export default RecipeCard;

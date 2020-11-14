@@ -17,8 +17,6 @@ const App = () => {
 		setRecipes(response.data.results);
 	};
 
-	console.log(recipes);
-
 	return (
 		<div>
 			<Search onSearchSubmit={onSearchSubmit} />
