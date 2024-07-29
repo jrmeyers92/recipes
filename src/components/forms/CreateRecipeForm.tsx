@@ -14,8 +14,8 @@ import { Card, CardHeader } from "../ui/card";
 
 const formSchema = z.object({
   name: z.string().min(1, "Please enter a recipe name."),
-  description: z.string().min(1, "Please enter a description."),
-  isPublic: z.boolean(),
+  description: z.string().optional(),
+  isPublic: z.boolean().optional(),
   image: z.string().optional(),
   steps: z.array(
     z.object({

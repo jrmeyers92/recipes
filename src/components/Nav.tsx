@@ -17,20 +17,23 @@ const Nav = () => {
       <h1 className="text-3xl font-bold">
         <Link href="/">Recipezz</Link>
       </h1>
-      <ul>
+      <ul className="flex items-center gap-4 font-bold">
         <SignedIn>
+          <Link href="/my-recipes">My Recipes</Link>
+          <Link href="/browse">Browse Recipes</Link>
+
           <UserButton />
         </SignedIn>
         <SignedOut>
           <div className="flex gap-4">
             <Link href="/sign-up" className={buttonVariants()}>
-              Sign Up{" "}
+              Sign Up
             </Link>
             <Link
               href="/sign-in"
               className={buttonVariants({ variant: "outline" })}
             >
-              Sign In{" "}
+              Sign In
             </Link>
           </div>
         </SignedOut>

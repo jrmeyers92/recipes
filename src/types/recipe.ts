@@ -9,11 +9,11 @@ export type Step = {
   order: number;
 };
 
-export type RecipeType = {
-  name: string;
-  description: string;
-  isPublic: boolean;
-  image: string;
-  ingredients: Ingredient[];
-  steps: Step[];
-};
+// export type RecipeType = {
+//   name: string;
+//   description: string;
+//   isPublic: boolean;
+//   image: string;
+//   ingredients: Ingredient[];
+//   steps: Step[];
+// };

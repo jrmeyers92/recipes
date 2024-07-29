@@ -34,17 +34,17 @@ model User {
 model Recipe {
   id             Int              @id @default(autoincrement())
   name           String
-  description    String
+  description    String?
   ingredients    Ingredient[]
   steps          Step[]
-  isPublic       Boolean          @default(false)
-  image          String?
+  isPublic       Boolean?         @default(false)
   author         User             @relation(fields: [authorId], references: [id])
   authorId       Int
   comments       Comment[]
   likes          Like[]
   ratings        Rating[]
   RecipeCategory RecipeCategory[]
+  image          String? // Optional image field
 }
 
 model Step {
