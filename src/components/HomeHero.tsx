@@ -2,8 +2,7 @@ import { cn } from "@/lib/utils";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
-import { CreateRecipeFormOne } from "./forms/CreateRecipeFormOne";
-import ReusableModal from "./ReusableModal";
+import CreateRecipeModalForm from "./forms/CreateRecipeModalForm";
 import { buttonVariants } from "./ui/button";
 const HomeHero = () => {
   return (
@@ -34,11 +33,7 @@ const HomeHero = () => {
             </Link>
           </SignedOut>
           <SignedIn>
-            <ReusableModal
-              triggerText="Create A Recipe"
-              title="Create a Recipe"
-              body={<CreateRecipeFormOne />}
-            />
+            <CreateRecipeModalForm />
           </SignedIn>
         </div>
       </div>

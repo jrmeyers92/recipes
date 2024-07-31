@@ -10,7 +10,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { useState } from "react";
 
 interface ReusableModalProps {
   triggerText: string;
@@ -21,9 +20,8 @@ interface ReusableModalProps {
   onSubmit?: () => void;
 }
 const ReusableModal = (props: ReusableModalProps) => {
-  const [open, setOpen] = useState(false);
   return (
-    <Dialog open={open}>
+    <Dialog>
       <DialogTrigger asChild>
         <Button variant="outline">{props.triggerText}</Button>
       </DialogTrigger>
