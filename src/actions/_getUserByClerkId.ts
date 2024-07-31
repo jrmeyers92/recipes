@@ -1,5 +1,5 @@
 "use server";
-import prisma from "@/lib/prisma";
+import prisma from "@/lib/db";
 import { currentUser } from "@clerk/nextjs/server";
 const getUserByClerkId = async () => {
   const user = await currentUser();
@@ -7,7 +7,7 @@ const getUserByClerkId = async () => {
     throw new Error("No user found");
   }
 
-  const theUser = prisma.user.findUnique({
+  const theUser = await prisma.user.findUnique({
     where: {
       clerkId: user.id,
     },
@@ -15,6 +15,9 @@ const getUserByClerkId = async () => {
       id: true,
     },
   });
+  if (!theUser) {
+    throw new Error("No user found in the database");
+  }
   return theUser.id;
 };
 

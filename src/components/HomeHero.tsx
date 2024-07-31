@@ -18,7 +18,7 @@ const HomeHero = () => {
       <div className="z-20 absolute top-1/2 left-1/2 -translate-x-1/2 -my-12">
         <h1 className="text-7xl text-white ">Welcome to Recipezz</h1>
         <h2 className="text-3xl text-white ">
-          Where your family recipes won't be forgotten
+          Where your family recipes won&apos;t be forgotten
         </h2>
         <div className="w-full text-center mt-4">
           <SignedOut>

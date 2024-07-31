@@ -27,29 +27,25 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+const formSchema = z.object({
+  firstName: z
+    .string()
+    .min(2, { message: "First name must be more than two characters" })
+    .max(255, { message: "First name must be less than 255 characters" }),
+  lastName: z.string().min(3).max(255),
+  email: z.string().email(),
+  birthYear: z.number().min(1900).max(2021).optional(),
+  birthMonth: z.string().optional(),
+  birthDay: z.number().min(1).max(31).optional(),
+  gender: z.enum(["male", "female", "nonBinary"]).optional(),
+  city: z.string(),
+  state: z.string(),
+  zipCode: z.number().min(5),
+});
+
 const OnboardingForm = () => {
   const router = useRouter();
   const { isLoaded, user } = useUser();
-
-  if (!isLoaded) {
-    return <div>Loading</div>;
-  }
-
-  const formSchema = z.object({
-    firstName: z
-      .string()
-      .min(2, { message: "First name must be more than two characters" })
-      .max(255, { message: "First name must be less than 255 characters" }),
-    lastName: z.string().min(3).max(255),
-    email: z.string().email(),
-    birthYear: z.number().min(1900).max(2021).optional(),
-    birthMonth: z.string().optional(),
-    birthDay: z.number().min(1).max(31).optional(),
-    gender: z.enum(["male", "female", "nonBinary"]).optional(),
-    city: z.string(),
-    state: z.string(),
-    zipCode: z.number().min(5),
-  });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -66,6 +62,10 @@ const OnboardingForm = () => {
       zipCode: undefined,
     },
   });
+
+  if (!isLoaded) {
+    return <div>Loading</div>;
+  }
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     const formData = new FormData();
