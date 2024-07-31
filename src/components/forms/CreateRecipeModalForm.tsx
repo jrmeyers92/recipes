@@ -67,8 +67,6 @@ const CreateRecipeModalForm = () => {
     },
   });
 
-  const fileRef = form.register("image");
-
   const {
     fields: stepFields,
     append: appendStep,
@@ -159,7 +157,7 @@ const CreateRecipeModalForm = () => {
                 </FormItem>
               )}
             />
-            <FormField
+            {/* <FormField
               control={form.control}
               name="isPublic"
               render={({ field }) => (
@@ -169,6 +167,24 @@ const CreateRecipeModalForm = () => {
                     <Checkbox {...field} value={field.value.toString()} />
                   </FormControl>
                   <FormMessage />
+                </FormItem>
+              )}
+            /> */}
+
+            <FormField
+              control={form.control}
+              name="isPublic"
+              render={({ field }) => (
+                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                  <div className="space-y-1 leading-none">
+                    <FormLabel>Availale for public to see</FormLabel>
+                  </div>
                 </FormItem>
               )}
             />

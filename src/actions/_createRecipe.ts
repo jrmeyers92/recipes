@@ -5,6 +5,7 @@ import db from "@/lib/db";
 import { currentUser } from "@clerk/nextjs/server";
 
 const createRecipe = async (formData: FormData) => {
+  console.log(formData.get("isPublic"));
   const user = await currentUser();
 
   if (!user) {
